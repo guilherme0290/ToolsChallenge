@@ -95,6 +95,24 @@ public class TransacaoControllerTest {
 
     }
 
+    @Test
+    public void getAllTransacao_sucess() throws Exception{
+
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.get("/transacao")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON);
+
+    }
+
+    @Test
+    public void getTransacaoID_sucess() throws Exception{
+
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.get("/transacao/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON);
+
+    }
+
 
 
 
