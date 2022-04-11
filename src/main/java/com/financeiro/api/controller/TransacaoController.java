@@ -20,7 +20,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
@@ -54,6 +56,15 @@ public class TransacaoController {
                 .map( p -> convertToTransDTO(p))
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Transação não encontrada: "+id));
     }
+
+    @GetMapping
+    public List<TransacaoDTO> findAll(){
+        List<Transacao> list = transacaoService.findAll();
+
+        List<TransacaoDTO> listDTO = list.stream().map(obj -> new TransacaoDTO(convertToTranscaoDTO(obj))).collect(Collectors.toList());
+        return listDTO;
+    }
+
 
     private DescricaoDTO convertToDescricaoDTO(TransacaoDescricao obj){
         return DescricaoDTO

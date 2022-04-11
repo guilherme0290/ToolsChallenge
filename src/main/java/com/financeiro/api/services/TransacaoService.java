@@ -12,12 +12,16 @@ import com.financeiro.api.repository.TransacaoPagamentoRepository;
 import com.financeiro.api.repository.TransacaoRepository;
 import com.financeiro.api.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.github.javafaker.Faker;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TransacaoService {
@@ -38,6 +42,19 @@ public class TransacaoService {
     public Optional<Transacao> obterTransacaoCompleto(Integer id){
         return transacaoRepository.findById(id);
     }
+
+    public List<Transacao> findAll(){
+        List<Transacao> list = transacaoRepository.findAll();
+        return list;
+    }
+
+
+//    @GetMapping
+//    public ResponseEntity<List<ClienteDTO>> findAll(){
+//        List<Cliente> list = service.findAll();
+//        List<ClienteDTO> listDTO = list.stream().map(obj -> new ClienteDTO(obj)).collect(Collectors.toList());
+//        return ResponseEntity.ok().body(listDTO);
+//    }
 
     public Optional<Transacao> estornoTransacao(Integer id){
         Optional<Transacao>  tras = transacaoRepository.findById(id);

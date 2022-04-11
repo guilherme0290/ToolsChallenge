@@ -10,6 +10,18 @@
 - url base: localhost:8080
 - endpoint: /transacao/estorno/{id}
 - requerido body: false
+- 
+## Pegar uma transação por id
+- Metodo: GET
+- url base: localhost:8080
+- endpoint: /transacao/{id}
+- requerido body: false
+- 
+## Pegar todas transações
+- Metodo: GET
+- url base: localhost:8080
+- endpoint: /transacao
+- requerido body: false
 
 ## Observação
 Neste projeto estou utilizando um banco de dados carregado na memoria (H2 database).
