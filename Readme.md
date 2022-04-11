@@ -1,3 +1,8 @@
+## Projeto construido com Spring Boot
+
+***
+- após abrir o projeto na pasta raiz, basta executar:
+- mvn spring-boot:run
 
 ## Criar uma transacao
 - Metodo: POST
